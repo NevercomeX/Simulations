@@ -46,20 +46,18 @@ def run_app(folder_name):
     Carga y ejecuta dinámicamente el archivo app.py del problema seleccionado,
     evitando colisiones de configuración de Streamlit y resolviendo imports relativos.
     """
-    folder_path = os.path.abspath(folder_name)
+    # Usar rutas absolutas basadas en la ubicación de este script
+    base_path = os.path.dirname(os.path.abspath(__file__))
+    folder_path = os.path.join(base_path, folder_name)
     
     # 1. Agregar la carpeta al path para imports locales (como model.py)
     sys.path.insert(0, folder_path)
     
-    # 2. Cambiar temporalmente el directorio de trabajo
-    old_cwd = os.getcwd()
-    os.chdir(folder_path)
-    
-    # 2.5. Limpiar el cache de imports para 'model' para forzar la carga del model.py de la carpeta actual
+    # 1.5. Limpiar el cache de imports para 'model' para forzar la carga del model.py de la carpeta actual
     if "model" in sys.modules:
         del sys.modules["model"]
     
-    # 3. Mockear st.set_page_config para evitar StreamlitAPIException (solo se permite una vez)
+    # 2. Mockear st.set_page_config para evitar StreamlitAPIException (solo se permite una vez)
     orig_set_page_config = st.set_page_config
     st.set_page_config = lambda *args, **kwargs: None
     
@@ -71,10 +69,9 @@ def run_app(folder_name):
         # Ejecutar el código del sub-app en el contexto global
         exec(code, globals())
     finally:
-        # 4. Restaurar estado original del sistema y Streamlit
+        # 3. Restaurar estado original del sistema y Streamlit
         st.set_page_config = orig_set_page_config
         sys.path.pop(0)
-        os.chdir(old_cwd)
 
 # Enrutamiento de páginas
 if sim_option == "Problema 1: Esterificación (Batch)":
