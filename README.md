@@ -79,21 +79,6 @@ Si prefieres iniciar las simulaciones de forma manual desde la terminal:
 
 ---
 
-## ☁️ Despliegue en la Nube (Streamlit Community Cloud)
-
-Puedes alojar este proyecto en la nube para que cualquiera (incluyendo tu profesor) acceda con un solo enlace, sin necesidad de instalar nada en su equipo local:
-
-1.  Sube este repositorio a tu cuenta de **GitHub**.
-2.  Inicia sesión en [Streamlit Community Cloud](https://share.streamlit.io/).
-3.  Haz clic en **"New app"** y conecta tu repositorio de GitHub.
-4.  Configura los siguientes campos:
-    *   **Repository:** `TU_USUARIO/TU_REPOSITORIO`
-    *   **Branch:** `main` (o la rama correspondiente)
-    *   **Main file path:** `main_app.py`
-5.  Haz clic en **"Deploy!"**.
-6.  ¡Listo! Streamlit instalará las dependencias de `requirements.txt` automáticamente y te generará un enlace web público.
-
----
 
 ## 🛠️ Tecnologías Utilizadas
 
