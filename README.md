@@ -22,11 +22,24 @@ El repositorio está organizado de la siguiente manera:
 
 ## 🚀 Cómo Ejecutar el Proyecto
 
-### Opción Rápida (Recomendada para Windows)
-Si estás utilizando Windows, no necesitas configurar manualmente el entorno. Simplemente:
-1.  Asegúrate de tener instalado **Python 3.8+** en tu sistema y haber marcado la casilla **"Add Python to PATH"** durante la instalación.
-2.  Haz doble clic en el archivo **`run_simulations.bat`** en la carpeta raíz.
-3.  El script instalará automáticamente todas las dependencias necesarias (`requirements.txt`) y levantará las 3 simulaciones de forma simultánea en tu navegador en los siguientes puertos:
+### Opción Rápida (Windows, Linux y macOS)
+Si deseas arrancar todo de forma automática sin configurar entornos de forma manual:
+
+*   **En Windows:**
+    1.  Asegúrate de tener instalado **Python 3.8+** en tu sistema y haber marcado la casilla **"Add Python to PATH"** durante la instalación.
+    2.  Haz doble clic en el archivo **`run_simulations.bat`** en la carpeta raíz.
+*   **En Linux / macOS:**
+    1.  Abre una terminal en la carpeta raíz del proyecto.
+    2.  Otorga permisos de ejecución al script:
+        ```bash
+        chmod +x run_simulations.sh
+        ```
+    3.  Ejecuta el script:
+        ```bash
+        ./run_simulations.sh
+        ```
+
+Cualquiera de los dos scripts instalará automáticamente todas las dependencias necesarias (`requirements.txt`) y levantará las 3 simulaciones de forma simultánea en tu navegador en los siguientes puertos:
     *   **Problema 1:** [http://localhost:8501](http://localhost:8501)
     *   **Problema 2:** [http://localhost:8502](http://localhost:8502)
     *   **Problema 3:** [http://localhost:8503](http://localhost:8503)
