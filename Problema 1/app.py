@@ -57,10 +57,10 @@ st.markdown('<div class="subtitle">Simulador del reactor continuo CSTR en fase l
 
 # Inicializar Simulador
 @st.cache_resource
-def get_simulator():
+def get_p1_simulator():
     return EsterificationSimulator()
 
-sim = get_simulator()
+sim = get_p1_simulator()
 
 # ---------------------------------------------------------
 # Barra Lateral (Controles del Reactor)

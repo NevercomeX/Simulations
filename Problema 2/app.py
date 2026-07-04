@@ -57,10 +57,10 @@ st.markdown('<div class="subtitle">Simulador termodinámico interactivo: Gas Ide
 
 # Inicializar Simulador
 @st.cache_resource
-def get_simulator():
+def get_p2_simulator():
     return NitrobenzeneSimulator()
 
-sim = get_simulator()
+sim = get_p2_simulator()
 
 # ---------------------------------------------------------
 # Barra Lateral (Controles)

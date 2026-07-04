@@ -59,10 +59,10 @@ st.markdown('<div class="subtitle">Simulador de reactor de flujo continuo (PFR) 
 
 # Inicializar Simulador
 @st.cache_resource
-def get_simulator():
+def get_p3_simulator():
     return HydrodealkylationSimulator()
 
-sim = get_simulator()
+sim = get_p3_simulator()
 
 # ---------------------------------------------------------
 # Barra Lateral (Controles)
