@@ -55,6 +55,10 @@ def run_app(folder_name):
     old_cwd = os.getcwd()
     os.chdir(folder_path)
     
+    # 2.5. Limpiar el cache de imports para 'model' para forzar la carga del model.py de la carpeta actual
+    if "model" in sys.modules:
+        del sys.modules["model"]
+    
     # 3. Mockear st.set_page_config para evitar StreamlitAPIException (solo se permite una vez)
     orig_set_page_config = st.set_page_config
     st.set_page_config = lambda *args, **kwargs: None
