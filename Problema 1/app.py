@@ -117,7 +117,7 @@ W_kg = st.sidebar.slider(
     min_value=0.1,
     max_value=2000.0,
     value=1.0,
-    step=1.0,
+    step=500.0,
     help="Masa total de catalizador sólido dentro del reactor. Al aumentar este valor, se aumenta la velocidad de reacción efectiva (residencia química)."
 )
 
