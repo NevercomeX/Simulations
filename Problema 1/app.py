@@ -38,14 +38,23 @@ st.markdown("""
     }
     /* Estilo para las tarjetas de métricas */
     div[data-testid="stMetricValue"] {
-        font-size: 2.2rem;
+        font-size: 1.8rem !important;
         font-weight: 700;
         color: #bd10e0;
     }
     div[data-testid="stMetricLabel"] {
-        font-size: 1rem;
+        font-size: 0.9rem !important;
         font-weight: 500;
         color: #555555;
+    }
+    /* Evitar truncamiento en métricas */
+    div[data-testid="stMetricValue"] > div,
+    div[data-testid="stMetricLabel"] > div,
+    div[data-testid="stMetricLabel"] {
+        white-space: normal !important;
+        word-break: break-word !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
     }
     /* Tarjetas personalizadas */
 </style>
@@ -145,7 +154,7 @@ col_kpi1, col_kpi2, col_kpi3, col_kpi4 = st.columns(4)
 with col_kpi1:
     with st.container(border=True):
         st.metric(
-            label="Frac. Molar Acetato de Etilo",
+            label="Frac. Molar EtOAc",
             value=f"{y_EtOAc_pct:.3f} %",
             help="Porcentaje molar de acetato de etilo en la corriente de salida del reactor."
         )
@@ -153,7 +162,7 @@ with col_kpi1:
 with col_kpi2:
     with st.container(border=True):
         st.metric(
-            label="Conversión del Ácido Acético",
+            label="Conversión AcOH",
             value=f"{X*100.0:.3f} %",
             help="Fracción del ácido acético alimentado que reacciona para formar producto."
         )
@@ -161,7 +170,7 @@ with col_kpi2:
 with col_kpi3:
     with st.container(border=True):
         st.metric(
-            label="Calor de Reacción (Q_rxn)",
+            label="Calor de Reacción",
             value=f"{Q_rxn:.3f} kW",
             help="Calor liberado por la reacción química. Un valor negativo indica reacción exotérmica."
         )
@@ -169,7 +178,7 @@ with col_kpi3:
 with col_kpi4:
     with st.container(border=True):
         st.metric(
-            label="Temperatura Óptima del Reactor",
+            label="Temp. Óptima Reactor",
             value=f"{T_opt:.1f} ºC",
             help="Temperatura dentro del rango 50-130ºC que proporciona la máxima fracción molar de Acetato de Etilo."
         )

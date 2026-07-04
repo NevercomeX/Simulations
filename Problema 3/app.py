@@ -41,14 +41,23 @@ st.markdown("""
     }
     /* Estilo para las tarjetas de métricas */
     div[data-testid="stMetricValue"] {
-        font-size: 2.2rem;
+        font-size: 1.8rem !important;
         font-weight: 700;
         color: #FF9F00;
     }
     div[data-testid="stMetricLabel"] {
-        font-size: 1rem;
+        font-size: 0.9rem !important;
         font-weight: 500;
         color: #555555;
+    }
+    /* Evitar truncamiento en métricas */
+    div[data-testid="stMetricValue"] > div,
+    div[data-testid="stMetricLabel"] > div,
+    div[data-testid="stMetricLabel"] {
+        white-space: normal !important;
+        word-break: break-word !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -168,7 +177,7 @@ col_kpi1, col_kpi2, col_kpi3, col_kpi4 = st.columns(4)
 with col_kpi1:
     with st.container(border=True):
         st.metric(
-            label="Conversión de Tolueno",
+            label="Conversión Tolueno",
             value=f"{X_final*100.0:.3f} %",
             help="Conversión acumulada del reactivo limitante (Tolueno) a la salida del PFR."
         )
@@ -176,7 +185,7 @@ with col_kpi1:
 with col_kpi2:
     with st.container(border=True):
         st.metric(
-            label="Tiempo de Residencia (τ)",
+            label="Tiempo de Residencia",
             value=f"{tau:.4f} s",
             help="Tiempo promedio que tarda la mezcla gaseosa en cruzar la longitud del reactor."
         )
@@ -184,7 +193,7 @@ with col_kpi2:
 with col_kpi3:
     with st.container(border=True):
         st.metric(
-            label="Potencia Térmica Total (Q_total)",
+            label="Calor Neto Requerido",
             value=f"{Q_total/1000.0:.3f} MW" if abs(Q_total) >= 1000.0 else f"{Q_total:.3f} kW",
             help="Calor neto que se debe intercambiar. Si es negativo, indica que se debe REMOVER calor para mantener la temperatura isotérmica."
         )
@@ -192,9 +201,9 @@ with col_kpi3:
 with col_kpi4:
     with st.container(border=True):
         st.metric(
-            label="Flujo de Benceno Producido",
+            label="Flujo Benceno Salida",
             value=f"{F_out[2]:.3f} kmol/h",
-            help="Flujo molar final de benceno en la corriente de productos a la salida."
+            help="Flujo molar de benceno en la corriente de salida del reactor."
         )
 
 # ---------------------------------------------------------

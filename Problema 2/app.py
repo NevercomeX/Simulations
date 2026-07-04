@@ -39,14 +39,23 @@ st.markdown("""
     }
     /* Estilo para las tarjetas de métricas */
     div[data-testid="stMetricValue"] {
-        font-size: 2.2rem;
+        font-size: 1.8rem !important;
         font-weight: 700;
         color: #FF4B4B;
     }
     div[data-testid="stMetricLabel"] {
-        font-size: 1rem;
+        font-size: 0.9rem !important;
         font-weight: 500;
         color: #555555;
+    }
+    /* Evitar truncamiento en métricas */
+    div[data-testid="stMetricValue"] > div,
+    div[data-testid="stMetricLabel"] > div,
+    div[data-testid="stMetricLabel"] {
+        white-space: normal !important;
+        word-break: break-word !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
     }
 </style>
 """, unsafe_allow_html=True)
