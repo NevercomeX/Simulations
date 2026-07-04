@@ -89,7 +89,7 @@ T_feed_C = st.sidebar.slider(
     "Temperatura de Alimentación (ºC)",
     min_value=20.0,
     max_value=100.0,
-    value=70.0,
+    value=25.0,
     step=1.0,
     help="Temperatura a la que ingresan los reactivos al reactor."
 )
@@ -98,7 +98,7 @@ F_A0 = st.sidebar.slider(
     "Alimentación de Ácido Acético (kmol/h)",
     min_value=10.0,
     max_value=200.0,
-    value=50.0,
+    value=25.0,
     step=5.0,
     help="Flujo molar de entrada del ácido acético (reactivo limitante)."
 )
